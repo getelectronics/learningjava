@@ -1,0 +1,355 @@
+50 simple Java code examples that cover various programming concepts like control structures, loops, arrays, methods, and object-oriented programming.
+
+1. Hello World
+
+public class HelloWorld {
+    public static void main(String[] args) {
+        System.out.println("Hello, World!");
+    }
+}
+
+
+2. Sum of Two Numbers
+
+public class Sum {
+    public static void main(String[] args) {
+        int a = 5, b = 10;
+        int sum = a + b;
+        System.out.println("Sum: " + sum);
+    }
+}
+
+
+3. Check Even or Odd
+
+public class EvenOdd {
+    public static void main(String[] args) {
+        int num = 10;
+        if (num % 2 == 0) {
+            System.out.println(num + " is even");
+        } else {
+            System.out.println(num + " is odd");
+        }
+    }
+}
+
+
+4. Find Largest Number
+
+public class LargestNumber {
+    public static void main(String[] args) {
+        int a = 5, b = 10, c = 3;
+        if (a > b && a > c) {
+            System.out.println("Largest is: " + a);
+        } else if (b > c) {
+            System.out.println("Largest is: " + b);
+        } else {
+            System.out.println("Largest is: " + c);
+        }
+    }
+}
+
+
+5. Factorial of a Number
+
+public class Factorial {
+    public static void main(String[] args) {
+        int num = 5;
+        int fact = 1;
+        for (int i = 1; i <= num; i++) {
+            fact *= i;
+        }
+        System.out.println("Factorial: " + fact);
+    }
+}
+
+
+6. Fibonacci Series
+
+public class Fibonacci {
+    public static void main(String[] args) {
+        int a = 0, b = 1, n = 10;
+        System.out.print(a + " " + b);
+        for (int i = 2; i < n; i++) {
+            int next = a + b;
+            System.out.print(" " + next);
+            a = b;
+            b = next;
+        }
+    }
+}
+
+
+7. Reverse a String
+
+public class ReverseString {
+    public static void main(String[] args) {
+        String str = "Hello";
+        String rev = "";
+        for (int i = str.length() - 1; i >= 0; i--) {
+            rev += str.charAt(i);
+        }
+        System.out.println("Reversed: " + rev);
+    }
+}
+
+
+8. Prime Number Check
+
+public class PrimeCheck {
+    public static void main(String[] args) {
+        int num = 29;
+        boolean isPrime = true;
+        for (int i = 2; i <= num / 2; i++) {
+            if (num % i == 0) {
+                isPrime = false;
+                break;
+            }
+        }
+        if (isPrime) {
+            System.out.println(num + " is prime");
+        } else {
+            System.out.println(num + " is not prime");
+        }
+    }
+}
+
+
+9. Sum of Array Elements
+
+public class SumArray {
+    public static void main(String[] args) {
+        int[] arr = {1, 2, 3, 4, 5};
+        int sum = 0;
+        for (int num : arr) {
+            sum += num;
+        }
+        System.out.println("Sum: " + sum);
+    }
+}
+
+
+10. Swap Two Variables
+
+public class Swap {
+    public static void main(String[] args) {
+        int a = 5, b = 10;
+        System.out.println("Before swap: a = " + a + ", b = " + b);
+        int temp = a;
+        a = b;
+        b = temp;
+        System.out.println("After swap: a = " + a + ", b = " + b);
+    }
+}
+
+
+11. Multiplication Table
+
+public class MultiplicationTable {
+    public static void main(String[] args) {
+        int num = 5;
+        for (int i = 1; i <= 10; i++) {
+            System.out.println(num + " x " + i + " = " + num * i);
+        }
+    }
+}
+
+
+12. Armstrong Number
+
+public class ArmstrongNumber {
+    public static void main(String[] args) {
+        int num = 153, sum = 0, temp = num;
+        while (temp != 0) {
+            int digit = temp % 10;
+            sum += Math.pow(digit, 3);
+            temp /= 10;
+        }
+        if (sum == num) {
+            System.out.println(num + " is an Armstrong number");
+        } else {
+            System.out.println(num + " is not an Armstrong number");
+        }
+    }
+}
+
+
+13. Sum of Digits
+
+public class SumOfDigits {
+    public static void main(String[] args) {
+        int num = 1234, sum = 0;
+        while (num != 0) {
+            sum += num % 10;
+            num /= 10;
+        }
+        System.out.println("Sum of digits: " + sum);
+    }
+}
+
+
+14. Reverse a Number
+
+public class ReverseNumber {
+    public static void main(String[] args) {
+        int num = 1234, reversed = 0;
+        while (num != 0) {
+            int digit = num % 10;
+            reversed = reversed * 10 + digit;
+            num /= 10;
+        }
+        System.out.println("Reversed: " + reversed);
+    }
+}
+
+
+15. GCD of Two Numbers
+
+public class GCD {
+    public static void main(String[] args) {
+        int a = 54, b = 24;
+        while (b != 0) {
+            int temp = b;
+            b = a % b;
+            a = temp;
+        }
+        System.out.println("GCD: " + a);
+    }
+}
+
+
+16. LCM of Two Numbers
+
+public class LCM {
+    public static void main(String[] args) {
+        int a = 54, b = 24, gcd = 1;
+        for (int i = 1; i <= a && i <= b; i++) {
+            if (a % i == 0 && b % i == 0) {
+                gcd = i;
+            }
+        }
+        int lcm = (a * b) / gcd;
+        System.out.println("LCM: " + lcm);
+    }
+}
+
+
+17. Leap Year Check
+
+public class LeapYear {
+    public static void main(String[] args) {
+        int year = 2024;
+        if ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0) {
+            System.out.println(year + " is a leap year");
+        } else {
+            System.out.println(year + " is not a leap year");
+        }
+    }
+}
+
+
+18. Count Vowels in a String
+
+public class VowelCount {
+    public static void main(String[] args) {
+        String str = "Hello World";
+        int count = 0;
+        for (char c : str.toCharArray()) {
+            if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') {
+                count++;
+            }
+        }
+        System.out.println("Vowel count: " + count);
+    }
+}
+
+
+19. Find Length of a String
+
+public class StringLength {
+    public static void main(String[] args) {
+        String str = "Hello World";
+        System.out.println("Length: " + str.length());
+    }
+}
+
+
+20. Convert Binary to Decimal
+
+public class BinaryToDecimal {
+    public static void main(String[] args) {
+        String binary = "1010";
+        int decimal = Integer.parseInt(binary, 2);
+        System.out.println("Decimal: " + decimal);
+    }
+}
+
+
+21. Convert Decimal to Binary
+
+public class DecimalToBinary {
+    public static void main(String[] args) {
+        int decimal = 10;
+        String binary = Integer.toBinaryString(decimal);
+        System.out.println("Binary: " + binary);
+    }
+}
+
+
+22. Find ASCII Value of a Character
+public class ASCIIValue {
+    public static void main(String[] args) {
+        char c = 'A';
+        int ascii = (int) c;
+        System.out.println("ASCII value: " + ascii);
+    }
+}
+
+
+23. Print Numbers from 1 to 10
+
+public class PrintNumbers {
+    public static void main(String[] args) {
+        for (int i = 1; i <= 10; i++) {
+            System.out.println(i);
+        }
+    }
+}
+
+
+24. Find Minimum and Maximum in an Array
+
+public class MinMaxArray {
+    public static void main(String[] args) {
+        int[] arr = {1, 2, 3, 4, 5};
+        int min = arr[0], max = arr[0];
+        for (int num : arr) {
+            if (num < min) {
+                min = num;
+            }
+            if (num > max) {
+                max = num;
+            }
+        }
+        System.out.println("Min: " + min + ", Max: " + max);
+    }
+}
+
+
+25. Check if a Number is Palindrome
+
+public class Palindrome {
+    public static void main(String[] args) {
+        int num = 121, reversed = 0, original = num;
+        while (num != 0) {
+            int digit = num % 10;
+            reversed = reversed * 10 + digit;
+            num /= 10;
+        }
+        if (original == reversed) {
+            System.out.println(original + " is a palindrome");
+        } else {
+            System.out.println(original + " is not a palindrome");
+        }
+    }
+}

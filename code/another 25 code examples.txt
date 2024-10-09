@@ -1,0 +1,449 @@
+In this article we give you another 25 simple Java code examples that cover various programming concepts like control structures, loops, arrays, methods, and object-oriented programming.
+
+We always find that actually trying out code examples and running them is one of the best ways to learn a new language
+
+[ez-toc]
+
+26. Generate Random Number
+
+import java.util.Random;
+public class RandomNumber {
+    public static void main(String[] args) {
+        Random rand = new Random();
+        int randomNum = rand.nextInt(100); // Random number between 0 and 99
+        System.out.println("Random number: " + randomNum);
+    }
+}
+
+
+27. Print a Triangle Pattern
+
+public class TrianglePattern {
+    public static void main(String[] args) {
+        for (int i = 1; i <= 5; i++) {
+            for (int j = 1; j <= i; j++) {
+                System.out.print("* ");
+            }
+            System.out.println();
+        }
+    }
+}
+
+
+28. Simple Calculator Using Switch
+
+import java.util.Scanner;
+public class Calculator {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter first number: ");
+        int num1 = sc.nextInt();
+        System.out.print("Enter second number: ");
+        int num2 = sc.nextInt();
+        System.out.print("Enter operation (+, -, *, /): ");
+        char op = sc.next().charAt(0);
+        switch (op) {
+            case '+':
+                System.out.println("Result: " + (num1 + num2));
+                break;
+            case '-':
+                System.out.println("Result: " + (num1 - num2));
+                break;
+            case '*':
+                System.out.println("Result: " + (num1 * num2));
+                break;
+            case '/':
+                System.out.println("Result: " + (num1 / num2));
+                break;
+            default:
+                System.out.println("Invalid operation");
+        }
+        sc.close();
+    }
+}
+
+
+29. Find Power of a Number
+
+public class PowerOfNumber {
+    public static void main(String[] args) {
+        int base = 2, exponent = 3;
+        int result = 1;
+        for (int i = 0; i < exponent; i++) {
+            result *= base;
+        }
+        System.out.println("Result: " + result);
+    }
+}
+
+
+30. Find Average of Array Elements
+
+public class AverageArray {
+    public static void main(String[] args) {
+        int[] arr = {1, 2, 3, 4, 5};
+        int sum = 0;
+        for (int num : arr) {
+            sum += num;
+        }
+        double average = (double) sum / arr.length;
+        System.out.println("Average: " + average);
+    }
+}
+
+
+31. Count Occurrence of Character in String
+
+public class CountCharacter {
+    public static void main(String[] args) {
+        String str = "hello world";
+        char target = 'l';
+        int count = 0;
+        for (char c : str.toCharArray()) {
+            if (c == target) {
+                count++;
+            }
+        }
+        System.out.println("Occurrence of '" + target + "': " + count);
+    }
+}
+
+
+32. Check if a String is a Palindrome
+
+public class PalindromeString {
+    public static void main(String[] args) {
+        String str = "madam";
+        String rev = new StringBuilder(str).reverse().toString();
+        if (str.equals(rev)) {
+            System.out.println(str + " is a palindrome");
+        } else {
+            System.out.println(str + " is not a palindrome");
+        }
+    }
+}
+
+
+33. Find Second Largest Number in Array
+
+public class SecondLargest {
+    public static void main(String[] args) {
+        int[] arr = {1, 2, 3, 4, 5};
+        int largest = Integer.MIN_VALUE, secondLargest = Integer.MIN_VALUE;
+        for (int num : arr) {
+            if (num > largest) {
+                secondLargest = largest;
+                largest = num;
+            } else if (num > secondLargest && num != largest) {
+                secondLargest = num;
+            }
+        }
+        System.out.println("Second largest: " + secondLargest);
+    }
+}
+
+
+34. Count Occurrence of Word in Sentence
+
+public class WordCount {
+    public static void main(String[] args) {
+        String sentence = "Java is fun and Java is powerful";
+        String word = "Java";
+        int count = 0;
+        String[] words = sentence.split(" ");
+        for (String w : words) {
+            if (w.equalsIgnoreCase(word)) {
+                count++;
+            }
+        }
+        System.out.println("Occurrence of word '" + word + "': " + count);
+    }
+}
+
+
+35. Sum of Elements in a Matrix
+
+public class MatrixSum {
+    public static void main(String[] args) {
+        int[][] matrix = {
+            {1, 2, 3},
+            {4, 5, 6},
+            {7, 8, 9}
+        };
+        int sum = 0;
+        for (int[] row : matrix) {
+            for (int element : row) {
+                sum += element;
+            }
+        }
+        System.out.println("Sum of matrix elements: " + sum);
+    }
+}
+
+
+36. Transpose of a Matrix
+
+public class TransposeMatrix {
+    public static void main(String[] args) {
+        int[][] matrix = {
+            {1, 2, 3},
+            {4, 5, 6}
+        };
+        int[][] transpose = new int[matrix[0].length][matrix.length];
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[i].length; j++) {
+                transpose[j][i] = matrix[i][j];
+            }
+        }
+        for (int[] row : transpose) {
+            for (int element : row) {
+                System.out.print(element + " ");
+            }
+            System.out.println();
+        }
+    }
+}
+
+
+37. Count Positive and Negative Numbers in Array
+
+public class CountPositiveNegative {
+    public static void main(String[] args) {
+        int[] arr = {1, -2, 3, -4, 5};
+        int positiveCount = 0, negativeCount = 0;
+        for (int num : arr) {
+            if (num > 0) {
+                positiveCount++;
+            } else if (num < 0) {
+                negativeCount++;
+            }
+        }
+        System.out.println("Positive numbers: " + positiveCount);
+        System.out.println("Negative numbers: " + negativeCount);
+    }
+}
+
+
+38. Find Sum of Diagonal Elements in Matrix
+
+public class DiagonalSum {
+    public static void main(String[] args) {
+        int[][] matrix = {
+            {1, 2, 3},
+            {4, 5, 6},
+            {7, 8, 9}
+        };
+        int sum = 0;
+        for (int i = 0; i < matrix.length; i++) {
+            sum += matrix[i][i];
+        }
+        System.out.println("Sum of diagonal elements: " + sum);
+    }
+}
+
+
+39. Find Intersection of Two Arrays
+
+import java.util.HashSet;
+public class Intersection {
+    public static void main(String[] args) {
+        int[] arr1 = {1, 2, 3, 4, 5};
+        int[] arr2 = {4, 5, 6, 7, 8};
+        HashSet<Integer> set = new HashSet<>();
+        for (int num : arr1) {
+            set.add(num);
+        }
+        System.out.print("Intersection: ");
+        for (int num : arr2) {
+            if (set.contains(num)) {
+                System.out.print(num + " ");
+            }
+        }
+    }
+}
+
+
+40. Find Union of Two Arrays
+
+import java.util.HashSet;
+public class Union {
+    public static void main(String[] args) {
+        int[] arr1 = {1, 2, 3, 4, 5};
+        int[] arr2 = {4, 5, 6, 7, 8};
+        HashSet<Integer> set = new HashSet<>();
+        for (int num : arr1) {
+            set.add(num);
+        }
+        for (int num : arr2) {
+            set.add(num);
+        }
+        System.out.print("Union: ");
+        for (int num : set) {
+            System.out.print(num + " ");
+        }
+    }
+}
+
+
+41. Count Words in a Sentence
+
+public class WordCounter {
+    public static void main(String[] args) {
+        String sentence = "Java programming is fun";
+        String[] words = sentence.split(" ");
+        System.out.println("Number of words: " + words.length);
+    }
+}
+
+
+42. Check if Two Strings are Anagrams
+
+import java.util.Arrays;
+public class AnagramCheck {
+    public static void main(String[] args) {
+        String str1 = "listen", str2 = "silent";
+        char[] arr1 = str1.toCharArray();
+        char[] arr2 = str2.toCharArray();
+        Arrays.sort(arr1);
+        Arrays.sort(arr2);
+        if (Arrays.equals(arr1, arr2)) {
+            System.out.println(str1 + " and " + str2 + " are anagrams");
+        } else {
+            System.out.println(str1 + " and " + str2 + " are not anagrams");
+        }
+    }
+}
+
+
+43. Check if a Matrix is Symmetric
+
+public class SymmetricMatrix {
+    public static void main(String[] args) {
+        int[][] matrix = {
+            {1, 2, 3},
+            {2, 4, 5},
+            {3, 5, 6}
+        };
+        boolean isSymmetric = true;
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix.length; j++) {
+                if (matrix[i][j] != matrix[j][i]) {
+                    isSymmetric = false;
+                    break;
+                }
+            }
+        }
+        if (isSymmetric) {
+            System.out.println("The matrix is symmetric");
+        } else {
+            System.out.println("The matrix is not symmetric");
+        }
+    }
+}
+
+
+44. Find Duplicate Elements in Array
+
+import java.util.HashSet;
+public class FindDuplicates {
+    public static void main(String[] args) {
+        int[] arr = {1, 2, 3, 4, 2, 5, 1};
+        HashSet<Integer> set = new HashSet<>();
+        System.out.print("Duplicates: ");
+        for (int num : arr) {
+            if (!set.add(num)) {
+                System.out.print(num + " ");
+            }
+        }
+    }
+}
+
+
+45. Find Substring in String
+
+public class SubstringCheck {
+    public static void main(String[] args) {
+        String str = "Hello World";
+        String sub = "World";
+        if (str.contains(sub)) {
+            System.out.println(sub + " is a substring of " + str);
+        } else {
+            System.out.println(sub + " is not a substring of " + str);
+        }
+    }
+}
+
+
+46. Reverse Words in a Sentence
+
+public class ReverseWords {
+    public static void main(String[] args) {
+        String sentence = "Java is fun";
+        String[] words = sentence.split(" ");
+        String reversedSentence = "";
+        for (int i = words.length - 1; i >= 0; i--) {
+            reversedSentence += words[i] + " ";
+        }
+        System.out.println("Reversed: " + reversedSentence.trim());
+    }
+}
+
+
+47. Convert String to Uppercase
+
+public class StringToUpperCase {
+    public static void main(String[] args) {
+        String str = "hello";
+        String upperStr = str.toUpperCase();
+        System.out.println("Uppercase: " + upperStr);
+    }
+}
+
+
+48. Find the Sum of Natural Numbers
+
+public class SumOfNaturalNumbers {
+    public static void main(String[] args) {
+        int num = 10, sum = 0;
+        for (int i = 1; i <= num; i++) {
+            sum += i;
+        }
+        System.out.println("Sum: " + sum);
+    }
+}
+
+
+49. Remove Duplicates from Array
+
+import java.util.HashSet;
+public class RemoveDuplicates {
+    public static void main(String[] args) {
+        int[] arr = {1, 2, 3, 4, 2, 5, 1};
+        HashSet<Integer> set = new HashSet<>();
+        System.out.print("Array without duplicates: ");
+        for (int num : arr) {
+            if (set.add(num)) {
+                System.out.print(num + " ");
+            }
+        }
+    }
+}
+
+
+50. Find the Largest Element in Array
+
+public class LargestElement {
+    public static void main(String[] args) {
+        int[] arr = {1, 2, 3, 4, 5};
+        int largest = arr[0];
+        for (int num : arr) {
+            if (num > largest) {
+                largest = num;
+            }
+        }
+        System.out.println("Largest element: " + largest);
+    }
+}
+
+
+These examples touch upon basic programming concepts, string manipulation, array operations, and algorithms that will help you gain a solid understanding of Java fundamentals.
