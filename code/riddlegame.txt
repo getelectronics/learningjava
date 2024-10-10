@@ -1,0 +1,64 @@
+import java.util.Scanner;
+
+public class RiddleGame {
+
+    // Array of riddles
+    private static String[] riddles = {
+        "I speak without a mouth and hear without ears. I have no body, but I come alive with wind. What am I?",
+        "You measure my life in hours, and I serve you by expiring. I'm quick when I'm thin and slow when I'm fat. What am I?",
+        "The more of this there is, the less you see. What is it?"
+    };
+
+    // Corresponding array of answers
+    private static String[] answers = {
+        "echo",
+        "candle",
+        "darkness"
+    };
+
+    // Number of attempts allowed for each riddle
+    private static final int MAX_ATTEMPTS = 3;
+
+    // Method to start the game
+    public static void startGame() {
+        Scanner scanner = new Scanner(System.in);
+        int score = 0; // Initialize the player's score
+
+        // Loop through all riddles
+        for (int i = 0; i < riddles.length; i++) {
+            System.out.println("Riddle " + (i + 1) + ": " + riddles[i]);
+            boolean answeredCorrectly = false;
+
+            // Give the user multiple attempts to answer
+            for (int attempt = 1; attempt <= MAX_ATTEMPTS; attempt++) {
+                System.out.print("Attempt " + attempt + " of " + MAX_ATTEMPTS + ": ");
+                String userAnswer = scanner.nextLine().trim().toLowerCase();
+
+                // Check if the user's answer is correct
+                if (userAnswer.equals(answers[i])) {
+                    System.out.println("Correct! You've earned 1 point.\n");
+                    score++; // Increment score for a correct answer
+                    answeredCorrectly = true;
+                    break; // Exit the loop if the answer is correct
+                } else {
+                    System.out.println("Wrong answer.");
+                }
+            }
+
+            // If the user fails to answer correctly after all attempts
+            if (!answeredCorrectly) {
+                System.out.println("You've used all attempts. The correct answer was: " + answers[i] + "\n");
+            }
+        }
+
+        // Display the user's final score after all riddles
+        System.out.println("Game Over! Your final score is: " + score + "/" + riddles.length);
+        scanner.close();
+    }
+
+    // Main method
+    public static void main(String[] args) {
+        System.out.println("Welcome to the Riddle Game!");
+        startGame();
+    }
+}
